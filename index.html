@@ -102,7 +102,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="book-now" class="btn-style">Book Now</button>
         </div>
     </main>
 
@@ -123,6 +123,21 @@
         document.getElementById('economyclass-decrease').addEventListener("click", function () {
             handleTicketChange('economyclass', false);
         })
+        function handleTicketChange(ticket, isIncrease) {
+            const ticketclassInput = document.getElementById(ticket + '-count');
+            const ticketclassCount = parseInt(ticketclassInput.value);
+            let ticketclassNewCount = ticketclassCount;
+            if (isIncrease == true) {
+                ticketclassNewCount = ticketclassCount + 1;
+            }
+            if (isIncrease == false && ticketclassCount > 0) {
+                ticketclassNewCount = ticketclassCount - 1;
+            }
+            ticketclassInput.value = ticketclassNewCount;
+            calculateTotal();
+
+
+        }
 
     </script>
 </body>
